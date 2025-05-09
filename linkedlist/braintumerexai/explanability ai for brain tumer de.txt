@@ -1,0 +1,111 @@
+explanability ai for brain tumer detection 
+
+Related work
+Input-Dependent Explanations (Instance-Level Explanations)
+These explanations focus on individual predictions by identifying the features or regions of the input that contributed most to the model's decision. This approach is particularly valuable in tasks like segmentation and classification in medical imaging.
+
+Popular Methods
+Perturbation-Based Methods:
+
+These methods involve altering parts of the input data (e.g., occluding or modifying regions) and observing the impact on the model's output.
+Example in Medical Imaging:
+Perturbing parts of a lung X-ray to determine which regions are critical for diagnosing pneumonia.
+
+
+2......
+Gradient-Based Methods:
+
+Gradients provide approximate values of feature importance based on the model's parameters. These methods evaluate how much a change in input features impacts the output.
+Common techniques include:
+Integral Gradient (IG): Integrates gradients along the path from a baseline input to the actual input.
+Vanilla Gradient (VG): Uses the raw gradients of the output with respect to the input.
+Guided Backpropagation (GB): Enhances gradients to focus on relevant input features.
+Example in Medical Imaging:
+Gradients can highlight areas of an MRI scan that most influenced the model's diagnosis of a brain tumor.
+
+
+
+
+
+
+
+
+Input-Independent Explanations (Model-Level Explanations)
+These explanations aim to provide insights into the overall behavior of the model rather than focusing on individual predictions. This approach evaluates how the model behaves across different inputs and contexts.
+
+
+
+
+Example in Medical Imaging:
+Explaining how a neural network detects diabetic retinopathy across a dataset of retinal scans without focusing on specific predictions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Advanced Techniques in Explainability
+Class Activation Mapping (CAM) and Variants
+CAM-based methods help visualize which parts of an image contribute most to a specific class.
+Grad-CAM: An improvement over CAM that computes gradients for class scores with respect to feature maps.
+Guided Grad-CAM: Combines Grad-CAM with Guided Backpropagation for more precise visualizations.
+Examples in Medical Imaging:
+
+Grad-CAM in Alzheimer’s Detection: Highlighting regions in 3D brain scans that correlate with Alzheimer’s symptoms.
+Guided Grad-CAM for Glioma Segmentation: Localizing tumor regions in MRI scans.
+Applications of Deep Models in Medical Imaging
+Segmentation Tasks:
+
+U-Net:
+Widely used for tasks like tumor segmentation.
+Example: Accurately segmenting liver tumors in CT scans to assist in preoperative planning.
+Classification Tasks:
+
+ResNet and GoogLeNet:
+Used for diagnosing diseases like tuberculosis, diabetic retinopathy, and brain tumors.
+Example:
+Identifying COVID-19 in chest X-rays using pre-trained VGG models and transfer learning.
+Hybrid Approaches:
+
+Combining Global and Local Explainability:
+Example: Combining CAM and GB to detect brain tumors, where GB identifies critical regions, and CAM provides class-specific insights.
+Examples of Explainability in Practice
+Alzheimer’s Disease:
+
+Yang et al. used 3D CNNs to classify Alzheimer’s disease and explain decisions by visualizing activated brain regions.
+Colon Polyp Analysis:
+
+Wickstrom et al. used GB to analyze colon polyp images, helping clinicians understand the critical features for classification.
+COVID-19 Diagnosis:
+
+Teixeira et al. used various deep learning models to classify chest X-ray images for COVID-19 detection, leveraging Grad-CAM for explainability.
+Brain Tumor Detection:
+
+Natekar et al. applied Grad-CAM to brain tumor segmentation, offering clear visual explanations for the model's predictions.
+Malaria Detection:
+
+Narayanan et al. used ResNet and GoogLeNet to detect malaria in blood smear images, visualizing class activation mappings to highlight infected areas.
+
+
+
+
+
+
+//////////////
+
+
+
+
+
+
+
