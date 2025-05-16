@@ -1,0 +1,3 @@
+reverseLinkedList Striver - recursive Approach is Pending
+
+L17 yt - Didnt Understand the Intution behind the tortoise hare perfectly 
