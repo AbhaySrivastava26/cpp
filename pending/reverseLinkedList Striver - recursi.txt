@@ -1,3 +1,6 @@
 reverseLinkedList Striver - recursive Approach is Pending
 
-L17 yt - Didnt Understand the Intution behind the tortoise hare perfectly 
+L17 yt - Didnt Understand the Intution behind the tortoise hare perfectly
+
+Check is LL is Plaindrome - Optimal Didnt learn .
+ 
