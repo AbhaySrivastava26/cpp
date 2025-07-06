@@ -63,6 +63,8 @@ int main(){
     }
     cout<<" ";
     cout<<" ";
-    cout<< " ";
+    //insertion sort done
+    //all functions 
+    cout<<"insertion sort completed";
     
 }
