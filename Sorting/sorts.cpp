@@ -65,6 +65,6 @@ int main(){
     cout<<" ";
     //insertion sort done
     //all functions 
-    cout<<"insertion sort completed";
+    cout<<"insertion sort completed and now we need to work for merge sort algorithm";
     
 }
