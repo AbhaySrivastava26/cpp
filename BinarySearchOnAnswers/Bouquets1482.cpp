@@ -10,7 +10,7 @@ public:
         }
         return maxi;
     }
-
+    
     int Minii(vector<int>& bloomDay) {
         int mini = INT_MAX;
         for (int i = 0; i < bloomDay.size(); i++) {
