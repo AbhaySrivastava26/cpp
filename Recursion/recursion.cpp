@@ -48,3 +48,4 @@ cin>>n;
   cout<<result;
     return 0;
 }
+
