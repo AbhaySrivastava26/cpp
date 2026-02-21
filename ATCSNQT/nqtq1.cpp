@@ -113,8 +113,9 @@
 // Binary representation of 10 is 1010. After toggling the bits(1010), will get 0101 which represents “5”. Hence output will print “5”.
 
 
-#include<bits/stdc++.h>
-using namespace std;
+// #include<bits/stdc++.h>
+// using namespace std;
+
 
 
 // int convbits(int n){
@@ -156,6 +157,44 @@ using namespace std;
 //     int  res=convbits(n);
 //     cout<<res;
 // }
+
+
+// int reversenum(int n){
+// string rev="";
+// while(n>0){
+//   if(n%2==1) rev+="1";
+//   else rev+="0";
+//   n/=2;
+// }
+// reverse(rev.begin(),rev.end());
+// string ans="";
+// for(int i=0;i<rev.size();i++){
+//   if(rev[i]=='1') ans+="0";
+//   else ans+="1";
+// }
+// int num=0;
+// int p2=1;
+// for(int i=ans.size()-1;i>=0;i--){
+//   if(ans[i]=='1') num+=p2;
+//   p2=p2*2;
+// }
+
+// return num;
+
+
+// }
+
+// int main(){
+// int n;
+// cin>>n;
+
+// int ans=reversenum(n);
+// cout<<ans;
+
+// }
+
+
+
 // TCS NQT Coding Question Day 1 Slot 2 – Question 1
 // Jack is always excited about sunday. It is favourite day, when he gets to play all day. And goes to cycling with his friends. 
 
@@ -439,7 +478,7 @@ using namespace std;
 
 // Problem Statement
 
-// An intelligence agency has received reports about some threats. The reports consist of numbers in a mysterious method. There is a number “N” and another number “R”. Those numbers are studied thoroughly and it is concluded that all digits of the number ‘N’ are summed up and this action is performed ‘R’ number of times. The resultant is also a single digit that is yet to be deciphered. The task here is to find the single-digit sum of the given number ‘N’ by repeating the action ‘R’ number of times.
+// /* An intelligence agency has received reports about some threats. The reports consist of numbers in a mysterious method. There is a number “N” and another number “R”. Those numbers are studied thoroughly and it is concluded that all digits of the number ‘N’ are summed up and this action is performed ‘R’ number of times. The resultant is also a single digit that is yet to be deciphered. The task here is to find the single-digit sum of the given number ‘N’ by repeating the action ‘R’ number of times.An intelligence agency has received reports about some threats. The reports consist of numbers in a mysterious method. There is a number “N” and another number “R”. Those numbers are studied thoroughly and it is concluded that all digits of the number ‘N’ are summed up and this action is performed ‘R’ number of times. The resultant is also a single digit that is yet to be deciphered. The task here is to find the single-digit sum of the given number ‘N’ by repeating the action ‘R’ number of times. */
 
 // If the value of ‘R’ is 0, print the output as ‘0’.
 
@@ -727,20 +766,249 @@ using namespace std;
 
 // }
 
-int main(){
-int n1=0;
-int n2=1;
-int n;
-cin>>n;
+// int main(){
+// int n;
+// cin>>n;
+// for(int i=2;i<=n;i++){
+//   while(n%i==0){
+//     cout<<i;
+//     n/=i;
+//   }
+// }
+// if(n>1) cout<<n;
+
+// }
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isprime(int n){
 int cnt=0;
-cout<<n1<<" ";
-cout<<n2<<" ";
-while(cnt!=n){
-  int   n3=n1+n2;
-    n1=n2;
-    n2=n3;
-    cout<<n3<<" ";
-    cnt++;
+for(int i=1;i<=n;i++){
+  if(n%i==0) cnt++;
+}
+if(cnt==2) return true;
+return false;
+}
+int revnumm(int n){
+  int temp=n;
+  
+  int rev=0;
+
+  while(n>0){
+    int lastdigit=n%10;
+    rev=rev*10+lastdigit;
+  n/=10;
+  }
+  return rev;
 }
 
+int gcd(int a,int b){
+  for(int i=min(a,b);i>=1;i--){
+    if(a%i==0 && b%i==0) return i;
+  }
+  return -1;
 }
+
+  bool isvowel(char ch){
+    if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'){
+      return true;
+    }
+    return false;
+  }
+  void count(string s){
+    int vow=0, con=0;
+    for(int i=0;i<s.size();i++){
+      char ch=tolower(s[i]);
+      if(isalpha(ch)){
+        if(isvowel(ch))vow++;
+        else con++;
+      }
+    } 
+    cout<<vow<<" ";
+    cout<<con;
+  }
+
+  string reverse(string s){
+  string rev="";
+    for(int i=s.size()-1;i>=0;i--){
+      rev+=s[i];
+    }
+    return rev;
+  }
+  string duplicate(string s){
+    string ans="";
+    // sort(s.begin(),s.end());
+    // for(int i=0;i<s.size()-1;i++){
+    //   if(s[i]!=s[i+1]) ans+=s[i];
+    // }
+    // ans+=s.back();
+    // return ans;
+    for(int i=0;i<s.size();i++){
+      if(ans.find(s[i])==-1)ans+=s[i];
+    }
+    return ans;
+  }
+
+  int second(vector<int>&nums){
+
+    int first=INT_MIN;
+    int second=INT_MIN;
+    for(int i=0;i<nums.size();i++){
+      if(nums[i]>first){
+        second=first;
+        first=nums[i];
+      }else if(nums[i]>second&& first!=nums[i] ){
+        second=nums[i];
+      }
+    }
+    return second;
+  }
+void addmatric(vector<vector<int>>&a ,vector<vector<int>>&b ,int r,int c){
+  vector<vector<int>>C(r,vector<int>(c));
+  for(int i=0;i<r;i++){
+    for(int j=0;j<c;j++){
+      C[i][j]=a[i][j]+b[i][j];
+     
+    }
+  }
+  cout<<"Addition Matrix:\n";
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++)
+            cout<<C[i][j]<<" ";
+    }
+}
+
+vector<int>merge(vector<int>&num1,vector<int>&num2){
+  vector<int>ans;
+  for(int i=0;i<num1.size();i++){
+    ans.push_back(num1[i]);
+  }
+  for(int i=0;i<num2.size();i++){
+    ans.push_back(num2[i]);
+  }
+  return ans;
+}
+
+int missing(vector<int>nums)
+{
+int n=nums.size()+1;
+// int missing =0;
+// int sum=0;
+// int total=(n*(n+1))/2;
+// for(int i=0;i<n;i++){
+// sum+=nums[i];
+// }
+// return total-sum;
+int xor1=0,xor2=0;
+for(int i=1;i<=n;i++){
+  xor1^=i;
+}
+for(int i=0;i<nums.size();i++){
+  xor2^=nums[i];
+}
+return xor1^xor2;
+
+}
+int countt(string s){
+int cnt=0;
+for(int i=0;i<s.size();i++){
+  if(s[i]!=' ' && (i==0 || s[i-1]==' ')) cnt++;
+}
+return cnt;
+}
+string removespace(string s){
+string ans="";
+for(int i=0;i<s.size();i++){
+  if(s[i]!=' ') ans+=s[i];
+}
+return ans;
+}
+vector<int>rotate(vector<int>&nums){
+    int n=nums.size();
+    int last=nums[n-1];
+    for(int i=n-1;i>0;i--){
+      nums[i]=nums[i-1];
+    }
+    nums[0]=last;
+return nums;
+
+}
+bool isplaindrome(string s){
+  int start=0;
+  int end=s.size()-1;
+  while(start<end){
+    if(s[start]!=s[end]) return false;
+    start++;
+    end--;
+
+  }
+  return true;
+}
+int power(int base,int exp){
+  int res=1;
+  for(int i=0;i<exp;i++){
+    res*=base;
+  }
+  return res;
+
+}
+
+//binary to decimal
+
+int dc(string s){
+  int n=s.size();
+  int power=0;
+  int decimal=0;
+  for(int i=n-1;i>=0;i--){
+     if(s[i]=='1')decimal+=pow(2,power);
+     power++;
+  }
+  return decimal;
+}
+
+
+bool perfect(int n){
+  vector<int>values;
+  
+  for(int i=1;i<=n;i++){
+    if(n%i==0) values.push_back(i);
+  }
+  int sum=0;
+  for(int x:values){
+    if(x!=n) sum+=x;
+  }
+  if(sum==n) return true;
+  return false;
+
+
+}
+  int main(){
+  int n;
+  // cin>>n;
+  // vector<int>nums(n);
+  // for(int i=0;i<n;i++){
+  //   cin>>nums[i];
+  // }
+  cin>>n;
+  bool ans =perfect(n);
+  if(ans) cout<<"perfect number";
+  else cout<<"not perfect number";
+
+  
+   }
+  
+
+
+  
+
+    // int r,c;
+  // cin>>r>>c;
+  // vector<vector<int>>a(r,vector<int>(c));
+  // vector<vector<int>>b(r,vector<int>(c));
+  // for(int i=0;i<r;i++)  
+  //       for(int j=0;j<c;j++)
+  //           cin>>a[i][j];
+
+  //   for(int i=0;i<r;i++)
+  //       for(int j=0;j<c;j++)
+  //           cin>>b[i][j];
