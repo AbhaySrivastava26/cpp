@@ -4,7 +4,7 @@
 using namespace std;
 
 int longestsubarraywithsumk(vector<int>& arr ,int k ){
-
+//  [1,1,2,4,1,1,1,1,]
     int first=0,second=0,sum=0,maxi=0;
     int n=arr.size();
     while(second<n){

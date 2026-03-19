@@ -6,6 +6,7 @@ int countArrayvalues(int n,int arr[],int num){
  for(int i=0;i<n;i++){
     if(arr[i]==num){
         count+=1;
+        
     }
  }
 return count;

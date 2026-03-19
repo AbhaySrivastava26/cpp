@@ -23,7 +23,7 @@ vector<int> dfsTraversal(vector<vector<int>> &adj) {
 int main() {
     int V = 5;
     vector<vector<int>> adj(V);
-
+// vector<vector<int>>adjj(m,vector<int>(n));
     // Sample undirected graph
     adj[0] = {1, 2};
     adj[1] = {0, 3};
