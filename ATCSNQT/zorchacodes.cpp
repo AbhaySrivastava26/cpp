@@ -444,6 +444,12 @@ bool isnumeric(char ch){
     return ch>='0' && ch<='8';
 }
 int maximumStringNumber(string s){
+   /* The above C++ code is iterating through a string `s` and extracting numeric values from it. It
+   checks each character in the string to see if it is a numeric character using the `isnumeric`
+   function (which is not a standard C++ function, so it must be a custom function defined
+   elsewhere). If a numeric character is found, it extracts the entire numeric value (possibly
+   consisting of multiple digits) and converts it to an integer using `stoi`. It then keeps track of
+   the maximum numeric value found in the string and returns that value. */
     int maxi=0;
     for(int i=0;i<s.size();i++){
         // char ch=s[i];
@@ -497,15 +503,77 @@ string ReverseToLowerToUpper(string str){
 // }
 
 
-//series type questions
+//series type questions fibonacci and prime number
+int prime(int n){
+    int count=0;
+    for(int i=2; ;i++){
+        int cnt=0;
+        for(int j=1;j<=i;j++){
+          if(i%j==0) cnt++;
+        }
+        if(cnt==2){
+            count++;
+            if(count==n) return i;
 
+        }
+    }
+}
+int fibo(int n){
+    if(n==1||n==2) return 1;
+    int n1=1,n2=1,n3;
+   for(int i=3;i<=n;i++){
+    n3=n1+n2;
+    n1=n2;
+    n2=n3;
+   }
+    return n3;
+}
+
+
+// int main(){
+    //     int n;
+    //     cin>>n;
+    //     int need=(n+1)/2;
+    //     int ans=0;
+    
+    //     if(n%2==0){
+        //          ans=prime(need);
+        //     }else{
+            //        ans=fibo(need);
+            //     }
+            //     cout<<ans;
+            
+            
+            // }
+            //commision joining shcemee where parents makes join c ilderen then gets a commisino of 10% else if not ==joins gets a 5% if parents makes join then child gets 5% commision
 int main(){
-    string parent;
-    getline(cin,parent);
-    string s;
-    cin>>s;
-    string users;
-    getline(cin,users);
-    
-    
+string parent;
+cin>>parent;
+char haschild;
+cin>>haschild;
+vector<string>children;
+if(haschild=='Y'){
+    cin.ignore();
+    string input;
+    getline(cin,input);
+    stringstream ss(input);
+    string name;
+    while(getline(ss,name,',')){
+        children.push_back(name);
+    }
+}
+int totalmembers=1+children.size();
+cout<<"totalmembers"<<totalmembers<<endl;
+cout<<"CommisionDetails"<<endl;
+if(children.size()>0){
+cout<<parent<<": "<<children.size()*500<<"INR"<<endl;
+
+}else{
+    cout<<parent<<":250 inr"<<endl;
+}
+for(string child:children){
+    cout<<child<<":250 INR"<<endl;
+}
+return 0;
+
 }

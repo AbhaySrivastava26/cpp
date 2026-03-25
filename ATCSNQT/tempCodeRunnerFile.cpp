@@ -1,29 +1,24 @@
-
-int villageSweet(vector<int>sweets,int k){
-    int n=sweets.size();
-    int maxi=INT_MIN;
-    int mini=INT_MAX;
-    for(int i=0;i<n;i++){
-        for(int j=i-k;j<=i+k;j++){
-            if(j<0) continue;
-            maxi=max(maxi,sweets[j]);
-
-        }
-        mini=min(mini,maxi);
-    }
-    return mini;
-}
-
+//if input is given rows and colums but data in string then how to convert it into array of 2d 
 int main(){
-   int n;
-   cin>>n;
-   int k;
-   cin>>k;
-   vector<int>sweets(n);
-   for(int i=0;i<n;i++){
-    cin>>sweets[i];
-   }
-   int ans=villageSweet(sweets,k);
-   cout<<ans;
-
+    int row=3,col=2;
+    string line;
+    getline(cin,line);
+    line.erase(remove(line.begin(),line.end(),' '),line.end());
+    stringstream ss(line);
+    vector<int>nums;
+    string token;
+    while(getline(ss,token,',')){
+        nums.push_back(stoi(token));
+    }
+    int k=0;
+    vector<vector<int>>matrix(row,vector<int>(col));
+    for(int i=0;i<row;i++){
+        for(int j=0;j<col;j++){
+            matrix[i][j]=nums[k++];
+        }
+    }
+    for(auto &r:matrix){
+        for(int x:r) cout<<x<<" ";
+        cout<<endl;
+    }
 }
