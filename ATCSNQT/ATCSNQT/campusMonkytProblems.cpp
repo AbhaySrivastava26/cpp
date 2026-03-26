@@ -162,19 +162,19 @@ bool subsetsum(vector<int>&nums,int i,int target){
 }
 
 
-int main(){
-int n;
-cin>>n;
-int target;
-cin>>target;
-vector<int>nums(n);
-for(int i=0;i<n;i++){
-  cin>>nums[i];
-}
-bool isexist=subsetsum(nums,0,target);
-if(isexist) cout<<"Exist";
-else cout<<"not";
-}
+// int main(){
+// int n;
+// cin>>n;
+// int target;
+// cin>>target;
+// vector<int>nums(n);
+// for(int i=0;i<n;i++){
+//   cin>>nums[i];
+// }
+// bool isexist=subsetsum(nums,0,target);
+// if(isexist) cout<<"Exist";
+// else cout<<"not";
+// }
 
 
 
@@ -305,5 +305,60 @@ else cout<<"not";
 
 
   // }
+
+  // int main(){
+  //   int total_income,total_expense=0;
+  //   cin>>total_income;
+  //   cin.ignore();
+  //   vector<string>v;
+  //   map<string,int>mp;
+  //   while(true){
+  //     string cat="";
+  //     int exp;
+  //     getline(cin,cat);
+  //     if(cat=="done") break;
+  //     cin>>exp;
+  //     cin.ignore();
+  //     if(mp.find(cat)==mp.end()){
+  //       v.push_back(cat);
+  //     }
+  //     mp[cat]+=exp;
+  //     total_expense+=exp;
+
+  //   }
+  //   cout<<total_income<<endl;
+  //   cout<<total_income-total_expense<<endl;
+  //   for(string it:v) cout<<it<<" "<<mp[it]<<endl;
+  // }
+//finding shoes pairs
+  int main(){
+    int N;
+    cin>>N;
+    unordered_map<string,int>store;
+    for(int i=0;i<N;i++){
+        string shoesize;
+        cin>>shoesize;
+        if(store.find(shoesize)!=store.end()){
+            store[shoesize]++;
+        }else{
+            store[shoesize]=1;
+        }
+    }
+    int pairs=0;
+    for(auto &it:store){
+        string key=it.first;
+        int val=it.second;
+        string opposite;
+        if(key[key.size()-1]=='L'){
+            opposite=key.substr(0,key.size()-1)+'R';
+        }else{
+            opposite=key.substr(0,key.size()-1)+'L';
+        }
+        if(store.find(opposite)!=store.end()){
+            pairs+=min(val,store[opposite]);
+        }
+    }
+    cout<<pairs/2;
+}
 
   
