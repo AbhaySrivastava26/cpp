@@ -110,6 +110,7 @@ int main(){
         }
     }
    int ans= rottenoranges(grid);
-   cout<<ans;
+
+   cout<<ans<<endl;
 
 }

@@ -87,7 +87,7 @@ void print6(int n){
 }
 void print7(int n){
     int i,j;
-    for(i=0;i<=n;i++){
+    for(i=0;i<n;i++){
         for(j=1;j<=n-i-1;j++){
             cout<<" ";
         }
@@ -152,6 +152,8 @@ void print8(int n){
 int main(){
     int n;
 cin>>n;
-print10(n);
+// print7(n);
+// print8(n);
+print9(n);
 
 }
